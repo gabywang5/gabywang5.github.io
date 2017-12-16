@@ -272,6 +272,156 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/16/TensorFlow-学习笔记-本机CPU-支持的指令与TensorFlow-支持的CPU指令的关系/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="venture9">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="venture9">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/12/16/TensorFlow-学习笔记-本机CPU-支持的指令与TensorFlow-支持的CPU指令的关系/" itemprop="url">TensorFlow 学习笔记 -- 本机CPU 支持的指令与TensorFlow 支持的CPU指令的关系</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-16T18:20:15+08:00">
+                2017-12-16
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2017/12/16/TensorFlow-学习笔记-本机CPU-支持的指令与TensorFlow-支持的CPU指令的关系/" class="leancloud_visitors" data-flag-title="TensorFlow 学习笔记 -- 本机CPU 支持的指令与TensorFlow 支持的CPU指令的关系">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>运行 TensorFlow 程序得到结果时，命令行总会显示这样一句话：</p>
+<pre><code>2017-12-16 15:09:14.780224: I tensorflow/core/platform/cpu_feature_guard.cc:137] Your CPU supports instructions that this TensorFlow binary was not compiled to use: SSE4.2 AVX AVX2 FMA
+</code></pre><p>看到程序运行结果也对，反正结果正确性也不受影响，忍忍就好啦。但是！。。几次之后，还是还让追求精简极致的猪猪女孩的我非常不爽！终于忍不住了！决定还是要查明一番这背后的原因。What is this warning about?</p>
+<p><a href="https://stackoverflow.com/questions/47068709/your-cpu-supports-instructions-that-this-tensorflow-binary-was-not-compiled-to-u" target="_blank" rel="noopener">https://stackoverflow.com/questions/47068709/your-cpu-supports-instructions-that-this-tensorflow-binary-was-not-compiled-to-u</a></p>
+<p>上面的链接给出了答案。</p>
+<p>现代 CPU 支持除常规的算术逻辑运算以外的很多底层的指令，比如 SSE2, SSE4, AVX这些。其中 AVX 特别引入了 FMA 操作。FMA 即 fused multiply-accumulate，FMA 操作可以加速代数运算，包括点积、矩阵运算、卷积等等，机器学习又会大量地涉及到此类运算。因此，一个支持 AVX 和 FMA 的 CPU 会运算的更快。（哈利路亚）<br><em>所以，讲白了，那段提示语只是在讲 CPU 而已。</em></p>
+<p>那为什么这些指令的扩展在 TensorFlow 程序中没有被用到呢？</p>
+<p>因为 TensorFlow 默认的 distribution 是建立在没有扩展 CPU 指令（ SSE4.1, SSE4.2, AVX, AVX2, FMA）上的。<br>另外一个现状就是，即使是一个支持扩展指令的 CPU， 它也还是没有 GPU 快。中大型规模的机器学习的训练最好在 GPU 上进行为佳。</p>
+<p>那么我不想看到这些烦人的提示语怎么办？</p>
+<p>有两个办法。</p>
+<ol>
+<li><p>如果你的电脑有 GPU，那么你完全可以忽略这些提示语，因为 most<br>expensive oops 会被自动分配到 GPU 上去运行。不想看到这些提示语，可以在代码前面加上下面几句：</p>
+<pre><code>import os
+os.environ[&apos;TF_CPP_MIN_LOG_LEVEL&apos;] = &apos;2&apos;
+</code></pre></li>
+</ol>
+<p>当然，这只是不让这两句恼人的提示语出现而已，但这并不代表此时的 TensorFlow 可以支持 CPU 指令集扩展比如 AVX／FMA。<br>Mac 一般都是配备了 GPU的，所以采用方法 1 即可。</p>
+<ol>
+<li>重新安装支持指令集扩展的 TensorFlow 版本。<a href="https://stackoverflow.com/questions/47068709/your-cpu-supports-instructions-that-this-tensorflow-binary-was-not-compiled-to-u" target="_blank" rel="noopener">https://stackoverflow.com/questions/47068709/your-cpu-supports-instructions-that-this-tensorflow-binary-was-not-compiled-to-u</a></li>
+</ol>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/15/TensorFlow-学习笔记/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1536,7 +1686,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-count">10</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
