@@ -86,7 +86,7 @@
 <meta property="og:site_name" content="venture9">
 <meta property="og:description" content="运行 TensorFlow 程序得到结果时，命令行总会显示这样一句话： 2017-12-16 15:09:14.780224: I tensorflow/core/platform/cpu_feature_guard.cc:137] Your CPU supports instructions that this TensorFlow binary was not compiled to use:">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-12-16T14:34:05.000Z">
+<meta property="og:updated_time" content="2017-12-16T14:35:12.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="TensorFlow 学习笔记 -- 本机CPU 支持的指令与TensorFlow 支持的CPU指令的关系">
 <meta name="twitter:description" content="运行 TensorFlow 程序得到结果时，命令行总会显示这样一句话： 2017-12-16 15:09:14.780224: I tensorflow/core/platform/cpu_feature_guard.cc:137] Your CPU supports instructions that this TensorFlow binary was not compiled to use:">
@@ -352,7 +352,7 @@
       
         <p>运行 TensorFlow 程序得到结果时，命令行总会显示这样一句话：</p>
 <pre><code>2017-12-16 15:09:14.780224: I tensorflow/core/platform/cpu_feature_guard.cc:137] Your CPU supports instructions that this TensorFlow binary was not compiled to use: SSE4.2 AVX AVX2 FMA
-</code></pre><p>看到程序运行结果也对，反正结果正确性也不受影响，忍忍就好啦。但是！。。几次之后，还是还让追求精简极致的猪猪女孩的我非常不爽！终于忍不住了！决定还是要查明一番这背后的原因。What is this warning about?</p>
+</code></pre><p>看到程序运行结果也对，反正结果正确性也不受影响，忍忍就好啦。但是！。。几次之后，还是还让追求精简极致的猪猪女孩的我非常不爽！终于忍不住了！决定还是要查明一番这背后的原因。What is this warning about?<br><a id="more"></a></p>
 <p><a href="https://stackoverflow.com/questions/47068709/your-cpu-supports-instructions-that-this-tensorflow-binary-was-not-compiled-to-u" target="_blank" rel="noopener">https://stackoverflow.com/questions/47068709/your-cpu-supports-instructions-that-this-tensorflow-binary-was-not-compiled-to-u</a></p>
 <p>上面的链接给出了答案。</p>
 <p>现代 CPU 支持除常规的算术逻辑运算以外的很多底层的指令，比如 SSE2, SSE4, AVX这些。其中 AVX 特别引入了 FMA 操作。FMA 即 fused multiply-accumulate，FMA 操作可以加速代数运算，包括点积、矩阵运算、卷积等等，机器学习又会大量地涉及到此类运算。因此，一个支持 AVX 和 FMA 的 CPU 会运算的更快。（哈利路亚）<br><em>所以，讲白了，那段提示语只是在讲 CPU 而已。</em></p>
