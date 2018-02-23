@@ -79,17 +79,17 @@
 
 
 
-<meta name="description" content="I guess it must be really hard to find someone that you really love.">
+<meta name="description" content="为了看懂部分代码，临时学习了一下shell。如题所言，shell 短小精悍，专心一点的话，两个小时就学完了几本语法，能看懂 shell 文件了。下面就 shell 的一些关键语法也是常用语法进行总结。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="无题">
-<meta property="og:url" content="http://yoursite.com/2018/01/28/无题/index.html">
+<meta property="og:title" content="短小精悍的shell">
+<meta property="og:url" content="http://yoursite.com/2018/02/23/短小精悍的shell/index.html">
 <meta property="og:site_name" content="Go Fight!">
-<meta property="og:description" content="I guess it must be really hard to find someone that you really love.">
+<meta property="og:description" content="为了看懂部分代码，临时学习了一下shell。如题所言，shell 短小精悍，专心一点的话，两个小时就学完了几本语法，能看懂 shell 文件了。下面就 shell 的一些关键语法也是常用语法进行总结。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-01-28T11:48:05.000Z">
+<meta property="og:updated_time" content="2018-02-23T09:02:52.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="无题">
-<meta name="twitter:description" content="I guess it must be really hard to find someone that you really love.">
+<meta name="twitter:title" content="短小精悍的shell">
+<meta name="twitter:description" content="为了看懂部分代码，临时学习了一下shell。如题所言，shell 短小精悍，专心一点的话，两个小时就学完了几本语法，能看懂 shell 文件了。下面就 shell 的一些关键语法也是常用语法进行总结。">
 
 
 
@@ -119,13 +119,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/01/28/无题/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/02/23/短小精悍的shell/"/>
 
 
 
 
 
-  <title>无题 | Go Fight!</title>
+  <title>短小精悍的shell | Go Fight!</title>
   
 
 
@@ -262,7 +262,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/28/无题/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/02/23/短小精悍的shell/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="venture9">
@@ -279,7 +279,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">无题</h1>
+          <h1 class="post-title" itemprop="name headline">短小精悍的shell</h1>
         
 
         <div class="post-meta">
@@ -291,8 +291,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-28T19:27:36+08:00">
-                2018-01-28
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-02-23T16:14:54+08:00">
+                2018-02-23
               </time>
             
 
@@ -309,7 +309,7 @@
 
           
           
-             <span id="/2018/01/28/无题/" class="leancloud_visitors" data-flag-title="无题">
+             <span id="/2018/02/23/短小精悍的shell/" class="leancloud_visitors" data-flag-title="短小精悍的shell">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -340,14 +340,20 @@
       
 
       
-        <p>I guess it must be really hard to find someone that you really love.<br><a id="more"></a></p>
-<p>I believe someone that really loves you are willing to do anything for you, even though that very little thing about x. I wouldn’t and are not willing to devote myself to someone that don’t deserve my time and careness. I guess I’m going to die alone. Maybe. </p>
-<p>It’s never wrong to be dedicated to work, for it returns sth for you as long as you gives the time, however, not for m.</p>
-<p>I should take care of myself and give myself all the time. To find many better places and meet better people. Before all things meet my expectation, what I do is patience and input.</p>
-<p>Never give up and find a way out.</p>
-<blockquote>
-<p>I wish you all I ever wanted for you, I wish you the best.</p>
-</blockquote>
+        <p>为了看懂部分代码，临时学习了一下shell。如题所言，shell 短小精悍，专心一点的话，两个小时就学完了几本语法，能看懂 shell 文件了。下面就 shell 的一些关键语法也是常用语法进行总结。<br><a id="more"></a></p>
+<p>###shell文件命名<br>shell 文件可以取任何后缀名，可以是 .sh，也可以是 .ah，只要你想都可以。但是本着见后缀如见内容类型的原则，shell 脚本文件最好以sh为后缀名。</p>
+<p>###shell文件执行<br>shell 文件执行前需要给文件加执行权限。<br>chmod +x ./xxx.sh<br>执行 sh 文件的格式为：<br>./xxx.sh<br>注意，./ 是为了告诉系统，就在当前目录下找 xxx.sh 这个文件。如果不加 ./，那 linux 系统会去 PATH 里面找有没有叫 xxx.sh 的，结果就是找不到！出错！</p>
+<p>###shell变量</p>
+<p>####定义变量</p>
+<p>shell 让我觉得奇怪的地方是，等号 = 的使用不符合标准的程序员有的习惯。<br>定义变量的时候，直接变量名 website=”google.com”<br>注意！变量名 website 跟 = 之间不能有空格！而且 = 跟变量值之间也不能有空格！</p>
+<p>####使用变量</p>
+<p>使用一个定义过的变量，在变量名之前加美元符号 $ 就可以了<br>例如要在屏幕上显示出 website 的值：<br>echo $website<br>或者<br>echo ${website}<br>加花括号是为了更加容易识别出变量名的边界，推荐一开始就养成加 {} 的习惯！</p>
+<p>###传递参数</p>
+<p>shell 传递参数时直接在命令后面加参数就可以了，比如<br>./test.sh 1 2 3<br>参数之间间隔一个空格</p>
+<p>###文件包含</p>
+<p>如果在一个文件中要使用到另外一个文件的话，要怎么包含这个文件呢？<br>很简单，在包含文件里面加上<br>source filename<br>filename 是被包含的文件<br>或者<br>. filename<br>注意！. 跟filename之间有空格！</p>
+<p>###输入输出重定向</p>
+<p>这个问题我暂时还没彻底搞懂，先留着，后面来填坑！</p>
 
       
     </div>
@@ -401,8 +407,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/01/26/Github-与本地交互的实用命令/" rel="next" title="Github 与本地交互的实用命令">
-                <i class="fa fa-chevron-left"></i> Github 与本地交互的实用命令
+              <a href="/2018/02/04/《拖拉一点也无妨》-读书笔记/" rel="next" title="《拖拉一点也无妨》-- 读书笔记">
+                <i class="fa fa-chevron-left"></i> 《拖拉一点也无妨》-- 读书笔记
               </a>
             
           </div>
@@ -410,10 +416,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/01/28/宁静以致远/" rel="prev" title="宁静以致远">
-                宁静以致远 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
