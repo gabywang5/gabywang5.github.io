@@ -87,7 +87,7 @@
 <meta property="og:description" content="之前经常碰到一个技术问题解决了半天最后无疾而终，便会关掉浏览器所有 tab，完全忘记此事，全当遭遇了一场狂风暴雨努力抗争但最终还是狼狈收场。现在觉得自己付出的时间，无论最终是否得到回报，还是把这个过程记录下来为好，一是可以借机重新整理处理问题的思路，在这个过程中，可以反思解决问题的逻辑是否清晰，完善自己解决问题的能力；二是我总觉得自己不够努力，做事太容易放弃，即使做一件事情没有成功，但是记录下这个">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://github.com/gabywang5/Markdown-photos/raw/master/CUDA.png">
-<meta property="og:updated_time" content="2018-02-26T04:28:16.000Z">
+<meta property="og:updated_time" content="2018-02-26T07:55:41.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Mac上搭建GPU环境的糟心事">
 <meta name="twitter:description" content="之前经常碰到一个技术问题解决了半天最后无疾而终，便会关掉浏览器所有 tab，完全忘记此事，全当遭遇了一场狂风暴雨努力抗争但最终还是狼狈收场。现在觉得自己付出的时间，无论最终是否得到回报，还是把这个过程记录下来为好，一是可以借机重新整理处理问题的思路，在这个过程中，可以反思解决问题的逻辑是否清晰，完善自己解决问题的能力；二是我总觉得自己不够努力，做事太容易放弃，即使做一件事情没有成功，但是记录下这个">
@@ -347,6 +347,24 @@
 <p>关于 enable NVIDIA cuda 的曲折过程，国际惯例，先自报家门：<br>本本：macOS Sierra 10.12、13-inch、processor 2GHz、内存 8GB</p>
 <p>好吧，在我折腾了半天以后，我才知道自己的 mac 一开始就不具备使用 GPU 的资格，我费了好大力气安装好了 CUDA web driver 以后看到下面这个图的时候，心里是崩溃的：</p>
 <p><img src="https://github.com/gabywang5/Markdown-photos/raw/master/CUDA.png" alt=""></p>
+<p>一步步来</p>
+<p>首先，看到这个项目，<a href="https://github.com/santi-pdp/segan。进去里面看到要求" target="_blank" rel="noopener">https://github.com/santi-pdp/segan。进去里面看到要求</a> TensorFlow 0.12，先试着最新版本的 tensorflow 是不能跑的，有很多问题，于是面临两个选择：<br>第一，就用最新版本的 tensorflow，尝试去改源码。<br>第二，安装对应版本的 tf。</p>
+<p>emmmm……首先，当然是先尝试第二个选择，如果相应版本安装成功了，那就不用大费周折去改源码了，能够跑起来的话，先看一下效果就最好。tensorflow r0.12 参见 <a href="https://www.tensorflow.org/versions/r0.12/get_started/os_setup。" target="_blank" rel="noopener">https://www.tensorflow.org/versions/r0.12/get_started/os_setup。</a></p>
+<p>In order to build or run TensorFlow with GPU support, both NVIDIA’s Cuda Toolkit (&gt;= 7.0) and cuDNN (&gt;= v3) need to be installed. 如果要在 Linux 上装 CUDA，跑可以用 GPU 的 tf 程序，那么 Cuda Toolkit (&gt;= 7.0) 和 cuDNN (&gt;= v3) 都要安装。</p>
+<p>tf GPU support 需要你的电脑有一个和 NVIDIA Compute Capability (&gt;= 3.0) 兼容的 GPU 显卡，包括但不限于以下四种：</p>
+<pre><code>* NVidia Titan
+* NVidia Titan X
+* NVidia K20
+* NVidia K40
+</code></pre><p>所以如果你的电脑直接没有一个 NVIDIA 的 GPU，那就呵呵了…</p>
+<p>OK，现在假定电脑有 NVIDIA 的 GPU card，那接下来要做的就是这几步：</p>
+<p><a href="https://www.tensorflow.org/versions/r0.12/get_started/os_setup#optional_install_cuda_gpus_on_linux" target="_blank" rel="noopener">https://www.tensorflow.org/versions/r0.12/get_started/os_setup#optional_install_cuda_gpus_on_linux</a></p>
+<p>见里面的 Optional: Install CUDA (GPUs on Linux)。大概步骤就是：</p>
+<pre><code>1. 检查 NVIDIA 显卡的兼容性
+2. 下载并安装 Cuda Toolkit
+3. 下载并安装 cuDNN
+4. 安装其它依赖关系
+</code></pre><p>放几个日后可以参考的链接：<br>TensorFlow —— GPU版安装指南 <a href="https://www.jianshu.com/p/f459f4ab0d99" target="_blank" rel="noopener">https://www.jianshu.com/p/f459f4ab0d99</a><br>Mac下CUDA开启及Tensorflow-gpu 1.4 安装 <a href="https://www.cnblogs.com/wolfray/p/8040694.html" target="_blank" rel="noopener">https://www.cnblogs.com/wolfray/p/8040694.html</a><br>Mac上部署Theano + Keras的深度学习开发环境 <a href="http://www.cnblogs.com/iloveai/p/shen-du-xue-xi-kai-fa-huan-jing-da-jian-jiao-cheng.html" target="_blank" rel="noopener">http://www.cnblogs.com/iloveai/p/shen-du-xue-xi-kai-fa-huan-jing-da-jian-jiao-cheng.html</a></p>
 
       
     </div>
