@@ -86,12 +86,12 @@
 <meta property="og:site_name" content="MQ love sharing!">
 <meta property="og:description" content="学习 python 模块的使用时，关于系统变量 __name__ 的作用到底是什么有点搞不清。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://github.com/gabywang5/gabywang5.github.io/raw/master/images/module.png">
-<meta property="og:updated_time" content="2018-06-03T13:52:19.073Z">
+<meta property="og:image" content="https://github.com/gabywang5/Markdown-photos/raw/master/module.png">
+<meta property="og:updated_time" content="2018-06-03T14:04:05.577Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Python系统变量__name__的作用">
 <meta name="twitter:description" content="学习 python 模块的使用时，关于系统变量 __name__ 的作用到底是什么有点搞不清。">
-<meta name="twitter:image" content="https://github.com/gabywang5/gabywang5.github.io/raw/master/images/module.png">
+<meta name="twitter:image" content="https://github.com/gabywang5/Markdown-photos/raw/master/module.png">
 
 
 
@@ -369,7 +369,7 @@
 <p>综合了这两篇文章<br><a href="https://www.liaoxuefeng.com/wiki/001374738125095c955c1e6d8bb493182103fac9270762a000/0013868200196665403ac40fac14536939dd5af20810782000" target="_blank" rel="noopener">https://www.liaoxuefeng.com/wiki/001374738125095c955c1e6d8bb493182103fac9270762a000/0013868200196665403ac40fac14536939dd5af20810782000</a><br><a href="https://blog.csdn.net/qq_32166627/article/details/59109080" target="_blank" rel="noopener">https://blog.csdn.net/qq_32166627/article/details/59109080</a></p>
 <p>理解初步如下：<br>在编写 python 函数时，开发者 A 通常会在函数中，插入一些测试代码。如果别人 B 来调用 A 的这个模块的时候，使用此模块的函数时，函数中的测试代码也会运行，结果中就会“莫名”多出一些 B 并不想要的输出结果。要想区分「直接运行」还是「被别人调用」，使得这两种情况下能够合理输出，故设置了一个系统变量 __name__。</p>
 <p>举一个栗子：<br>代码如图</p>
-<p><img src="https://github.com/gabywang5/gabywang5.github.io/raw/master/images/module.png" alt=""></p>
+<p><img src="https://github.com/gabywang5/Markdown-photos/raw/master/module.png" alt=""></p>
 <p>如果直接在命令行运行 <strong>python test_module.py</strong>，那么输出就是 hello, world!</p>
 <p>然而如果模块 test_module 是被调用，那么结果就不会输出 hello, world!</p>
 <p>只有当显示执行模块里的函数的时候，hello, world! 才会输出。比如在 python 的交互环境中直接运行 <strong>test_module.test()</strong></p>
