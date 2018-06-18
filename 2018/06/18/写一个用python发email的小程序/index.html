@@ -79,17 +79,17 @@
 
 
 
-<meta name="description" content="为了看懂部分代码，临时学习了一下shell。如题所言，shell 短小精悍，专心一点的话，两个小时就学完了几本语法，能看懂 shell 文件了。下面就 shell 的一些关键语法也是常用语法进行总结。">
+<meta name="description" content="一个python小程序，自己可以写一个发email的第三方客户端，想想还是蛮激动的…">
 <meta property="og:type" content="article">
-<meta property="og:title" content="短小精悍的shell">
-<meta property="og:url" content="http://yoursite.com/2018/02/23/短小精悍的shell/index.html">
+<meta property="og:title" content="写一个用python发email的小程序">
+<meta property="og:url" content="http://yoursite.com/2018/06/18/写一个用python发email的小程序/index.html">
 <meta property="og:site_name" content="MQ keeps coding!">
-<meta property="og:description" content="为了看懂部分代码，临时学习了一下shell。如题所言，shell 短小精悍，专心一点的话，两个小时就学完了几本语法，能看懂 shell 文件了。下面就 shell 的一些关键语法也是常用语法进行总结。">
+<meta property="og:description" content="一个python小程序，自己可以写一个发email的第三方客户端，想想还是蛮激动的…">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-02-23T09:11:10.000Z">
+<meta property="og:updated_time" content="2018-06-18T15:21:50.606Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="短小精悍的shell">
-<meta name="twitter:description" content="为了看懂部分代码，临时学习了一下shell。如题所言，shell 短小精悍，专心一点的话，两个小时就学完了几本语法，能看懂 shell 文件了。下面就 shell 的一些关键语法也是常用语法进行总结。">
+<meta name="twitter:title" content="写一个用python发email的小程序">
+<meta name="twitter:description" content="一个python小程序，自己可以写一个发email的第三方客户端，想想还是蛮激动的…">
 
 
 
@@ -119,13 +119,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/02/23/短小精悍的shell/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/06/18/写一个用python发email的小程序/"/>
 
 
 
 
 
-  <title>短小精悍的shell | MQ keeps coding!</title>
+  <title>写一个用python发email的小程序 | MQ keeps coding!</title>
   
 
 
@@ -262,7 +262,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/02/23/短小精悍的shell/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/18/写一个用python发email的小程序/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="wangmq">
@@ -279,7 +279,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">短小精悍的shell</h1>
+          <h1 class="post-title" itemprop="name headline">写一个用python发email的小程序</h1>
         
 
         <div class="post-meta">
@@ -291,8 +291,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-02-23T16:14:54+08:00">
-                2018-02-23
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-06-18T22:21:20+08:00">
+                2018-06-18
               </time>
             
 
@@ -302,6 +302,28 @@
           </span>
 
           
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/python/" itemprop="url" rel="index">
+                    <span itemprop="name">python</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
 
           
             
@@ -309,7 +331,7 @@
 
           
           
-             <span id="/2018/02/23/短小精悍的shell/" class="leancloud_visitors" data-flag-title="短小精悍的shell">
+             <span id="/2018/06/18/写一个用python发email的小程序/" class="leancloud_visitors" data-flag-title="写一个用python发email的小程序">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -340,14 +362,18 @@
       
 
       
-        <p>为了看懂部分代码，临时学习了一下shell。如题所言，shell 短小精悍，专心一点的话，两个小时就学完了几本语法，能看懂 shell 文件了。下面就 shell 的一些关键语法也是常用语法进行总结。<br><a id="more"></a></p>
-<h3 id="shell文件命名"><a href="#shell文件命名" class="headerlink" title="shell文件命名"></a>shell文件命名</h3><p>shell 文件可以取任何后缀名，可以是 .sh，也可以是 .ah，只要你想都可以。但是本着见后缀如见内容类型的原则，shell 脚本文件最好以sh为后缀名。</p>
-<h3 id="shell文件执行"><a href="#shell文件执行" class="headerlink" title="shell文件执行"></a>shell文件执行</h3><p>shell 文件执行前需要给文件加执行权限。<br>chmod +x ./xxx.sh<br>执行 sh 文件的格式为：<br>./xxx.sh<br>注意，./ 是为了告诉系统，就在当前目录下找 xxx.sh 这个文件。如果不加 ./，那 linux 系统会去 PATH 里面找有没有叫 xxx.sh 的，结果就是找不到！出错！</p>
-<h3 id="shell变量"><a href="#shell变量" class="headerlink" title="shell变量"></a>shell变量</h3><h4 id="定义变量"><a href="#定义变量" class="headerlink" title="定义变量"></a>定义变量</h4><p>shell 让我觉得奇怪的地方是，等号 = 的使用不符合标准的程序员有的习惯。<br>定义变量的时候，直接变量名 website=”google.com”<br>注意！变量名 website 跟 = 之间不能有空格！而且 = 跟变量值之间也不能有空格！</p>
-<h4 id="使用变量"><a href="#使用变量" class="headerlink" title="使用变量"></a>使用变量</h4><p>使用一个定义过的变量，在变量名之前加美元符号 $ 就可以了<br>例如要在屏幕上显示出 website 的值：<br>echo $website<br>或者<br>echo ${website}<br>加花括号是为了更加容易识别出变量名的边界，推荐一开始就养成加 {} 的习惯！</p>
-<h3 id="传递参数"><a href="#传递参数" class="headerlink" title="传递参数"></a>传递参数</h3><p>shell 传递参数时直接在命令后面加参数就可以了，比如<br>./test.sh 1 2 3<br>参数之间间隔一个空格</p>
-<h3 id="文件包含"><a href="#文件包含" class="headerlink" title="文件包含"></a>文件包含</h3><p>如果在一个文件中要使用到另外一个文件的话，要怎么包含这个文件呢？<br>很简单，在包含文件里面加上<br>source filename<br>filename 是被包含的文件<br>或者<br>. filename<br>注意！. 跟filename之间有空格！</p>
-<h3 id="输入输出重定向"><a href="#输入输出重定向" class="headerlink" title="输入输出重定向"></a>输入输出重定向</h3><p>这个我还没彻底搞懂，先留着，后面来填坑！</p>
+        <p>一个python小程序，自己可以写一个发email的第三方客户端，想想还是蛮激动的…<br><a id="more"></a><br>先上效果图，非常 low 简单的一个效果。把自己的两个邮箱用来测试，发件人是2412191256\@qq.com，收件人是15626271834\@163.com。<br><img src="" alt=""><br><img src="" alt=""></p>
+<p>关于收发邮件的原理，自己画了一个草图，大概捋清了中间的过程（图片略寒碜，将就着看）：</p>
+<p><img src="" alt=""></p>
+<p>上代码：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">import smtplib</span><br><span class="line">from email.mime.text import MIMEText</span><br><span class="line"></span><br><span class="line">msg = MIMEText(&apos;hello, send by python...&apos;,&apos;plain&apos;,&apos;utf-8&apos;)</span><br><span class="line"></span><br><span class="line">from_addr = raw_input(&apos;From:&apos;)</span><br><span class="line">password = raw_input(&apos;Password:&apos;)</span><br><span class="line">smtp_server = raw_input(&apos;SMTP server:&apos;)</span><br><span class="line">to_addr = raw_input(&apos;To:&apos;)</span><br><span class="line"></span><br><span class="line">server = smtplib.SMTP_SSL(smtp_server, 465)</span><br><span class="line">server.set_debuglevel(1)</span><br><span class="line">server.login(from_addr, password)</span><br><span class="line">server.sendmail(from_addr, [to_addr], msg.as_string())</span><br><span class="line">server.quit()</span><br></pre></td></tr></table></figure></p>
+<p>虽然是照着教程敲的，但是调试这么个小程序都还有几个要注意的地方。<br>由时间顺序来讲。</p>
+<p>首先，代码语法错误。第一次调试出现错误提示 importError，找不到 MINEText module，我找啊找，查啊查，最后坑爹的发现自己把 MIMEText 打成了 MINEText，真的是一口老血吐出来…</p>
+<p>然后，确定没有语法错误以后，提示图中错误：<br><img src="" alt=""><br>看提示信息，说是 smtp 验证错误，需要一个安全链接，比如ssl，于是把原教程中的 server = smtplib.SMTP(smtp_server, 25)，改成了server = smtplib.SMTP_SSL(smtp_server, 25)，心里想着，好，你让我用安全链接去验证，那我用，这下没问题了吧…</p>
+<p>谁知，又提示：<br><img src="" alt=""></p>
+<p>纳尼？…这又是什么幺蛾子？于是查啊查，发现是smtp的ssl加密方式有特定的服务器端口号。</p>
+<p>其实，在配置QQ邮箱的ssl的时候，根据QQ邮箱提供的方式(如何设置POP3/SMTP的SSL加密方式？<a href="http://service.mail.qq.com/cgi-bin/help?subtype=1&amp;&amp;id=28&amp;&amp;no=369)，已经可以得知，端口需要用465或者587,这两个我都试了一下，465ok，587fail。" target="_blank" rel="noopener">http://service.mail.qq.com/cgi-bin/help?subtype=1&amp;&amp;id=28&amp;&amp;no=369)，已经可以得知，端口需要用465或者587,这两个我都试了一下，465ok，587fail。</a></p>
+<p>接着又会需要授权码。（什么是授权码，它又是如何设置？<a href="http://service.mail.qq.com/cgi-bin/help?subtype=1&amp;&amp;id=28&amp;&amp;no=1001256\r\n%27）" target="_blank" rel="noopener">http://service.mail.qq.com/cgi-bin/help?subtype=1&amp;&amp;id=28&amp;&amp;no=1001256\r\n%27）</a><br>个人理解，授权码是对通过第三方客户端登陆本方邮箱的一种安全验证。至于为什么非要一个授权码，留坑后面再填…</p>
+<p>至此，发一个很挫简单的邮件成就达成，可以继续下一步的精致工作了～</p>
 
       
     </div>
@@ -401,8 +427,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/02/04/《拖拉一点也无妨》-读书笔记/" rel="next" title="《拖拉一点也无妨》-- 读书笔记">
-                <i class="fa fa-chevron-left"></i> 《拖拉一点也无妨》-- 读书笔记
+              <a href="/2018/06/12/Sublime-实用快捷键/" rel="next" title="Sublime 实用快捷键">
+                <i class="fa fa-chevron-left"></i> Sublime 实用快捷键
               </a>
             
           </div>
@@ -410,10 +436,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/02/26/Mac上搭建GPU环境的糟心事/" rel="prev" title="Mac上搭建GPU环境的糟心事">
-                Mac上搭建GPU环境的糟心事 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -465,17 +487,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            站点概览
-          </li>
-        </ul>
-      
 
-      <section class="site-overview-wrap sidebar-panel">
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -542,22 +555,6 @@
         </div>
       </section>
 
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#shell文件命名"><span class="nav-number">1.</span> <span class="nav-text">shell文件命名</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#shell文件执行"><span class="nav-number">2.</span> <span class="nav-text">shell文件执行</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#shell变量"><span class="nav-number">3.</span> <span class="nav-text">shell变量</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#定义变量"><span class="nav-number">3.1.</span> <span class="nav-text">定义变量</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#使用变量"><span class="nav-number">3.2.</span> <span class="nav-text">使用变量</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#传递参数"><span class="nav-number">4.</span> <span class="nav-text">传递参数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#文件包含"><span class="nav-number">5.</span> <span class="nav-text">文件包含</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#输入输出重定向"><span class="nav-number">6.</span> <span class="nav-text">输入输出重定向</span></a></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
       
 
       

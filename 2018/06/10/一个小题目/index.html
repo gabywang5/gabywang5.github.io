@@ -87,7 +87,7 @@
 <meta property="og:description" content="在看廖雪峰老师的python教程-常用内建模块-struct这一小节的时候，开头就看到这个题目，也许是距离之前上计算机基础课已经很久了，乍一看来好像很基础的一个题目竟然计算了很久，看来基础要及时巩固才行。">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://github.com/gabywang5/Markdown-photos/raw/master/struct.png">
-<meta property="og:updated_time" content="2018-06-11T14:29:21.502Z">
+<meta property="og:updated_time" content="2018-06-12T04:50:38.509Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="一个小题目">
 <meta name="twitter:description" content="在看廖雪峰老师的python教程-常用内建模块-struct这一小节的时候，开头就看到这个题目，也许是距离之前上计算机基础课已经很久了，乍一看来好像很基础的一个题目竟然计算了很久，看来基础要及时巩固才行。">
@@ -378,7 +378,7 @@ print s
 &apos;\x00\x9c@c&apos;
 </code></pre><p>本题是要将一个32位无符号整数变成字节。<br>一个无符号整数占4个bits，8个整数占8*4 = 32个bits；<br>一个字节占8个bits，所以一个8位无符号整数可以表示为一个4字节的数据。<br>此处我们表示为一个4个字节的str。</p>
 <p>首先，先讲清楚为什么 chr((n &amp; 0xff000000) &gt;&gt; 24) 是’\x00’。<br>n = 10240099<br>第一步：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; print 10240099 &amp; 0xff000000</span><br><span class="line">0</span><br></pre></td></tr></table></figure></p>
-<p>这里必须要特意强调下！！！<br>重要的事情说三遍！！！<br>此处，n 是以十进制的形式表示的！！！不能当成十六进制转化为2进制再与0xff000000做 &amp; 运算！<br>n 转化为二进制表示是：1001 1100 0100 0000 0110 0011<br>此处复习一下不同进制的表示：<br>。。。<br>0以十六进制表示出来就是0x00000000，用 bits 表示出来就是 0000 0000 … 0000(一共32个0位)<br>第二步：<br>再向右移24位，还是32个0位，即0<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; 0&gt;&gt;24</span><br><span class="line">0</span><br></pre></td></tr></table></figure></p>
+<p>这里必须要特意强调下！！！<br>重要的事情说三遍！！！<br>此处，n 是以十进制的形式表示的！！！不能当成十六进制转化为2进制再与0xff000000做 &amp; 运算！<br>n 转化为二进制表示是：1001 1100 0100 0000 0110 0011<br>此处复习一下不同进制的表示：<br>。。。<br>（本来想具体写一下的，还是懒得写了，此处省略一百字）<br>0以十六进制表示出来就是0x00000000，用 bits 表示出来就是 0000 0000 … 0000(一共32个0位)<br>第二步：<br>再向右移24位，还是32个0位，即0<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; 0&gt;&gt;24</span><br><span class="line">0</span><br></pre></td></tr></table></figure></p>
 <p>第三步：<br>chr(0)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; chr(0)</span><br><span class="line">&apos;\x00&apos;</span><br></pre></td></tr></table></figure></p>
 <p>故有：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; chr((n &amp; 0xff000000) &gt;&gt; 24)</span><br><span class="line">&apos;\x00&apos;</span><br></pre></td></tr></table></figure></p>
 <p>注：chr() 用一个范围在 range（256）内的（就是0～255）整数作参数，返回当前整数对应的 ASCII 字符。</p>
@@ -444,6 +444,10 @@ print s
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/06/12/Sublime-实用快捷键/" rel="prev" title="Sublime 实用快捷键">
+                Sublime 实用快捷键 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -511,7 +515,7 @@ print s
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">29</span>
+                  <span class="site-state-item-count">31</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -522,7 +526,7 @@ print s
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-count">7</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
