@@ -91,7 +91,7 @@
 <meta property="og:image" content="https://github.com/gabywang5/Markdown-photos/raw/master/smtpemail.jpeg">
 <meta property="og:image" content="https://github.com/gabywang5/Markdown-photos/raw/master/smtpbug.jpeg">
 <meta property="og:image" content="https://github.com/gabywang5/Markdown-photos/raw/master/smtp%E7%AB%AF%E5%8F%A3%E9%94%99%E8%AF%AF%E6%8F%90%E7%A4%BA.jpeg">
-<meta property="og:updated_time" content="2018-06-19T00:57:13.433Z">
+<meta property="og:updated_time" content="2018-06-20T06:39:26.368Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="写一个用python发email的小程序">
 <meta name="twitter:description" content="一个 python 小程序，自己可以写一个发 email 的第三方客户端，想想还是蛮激动的…">
@@ -380,6 +380,9 @@
 <p>其实，在配置 QQ 邮箱的 ssl 的时候，根据 QQ 邮箱提供的方式(如何设置 POP3/SMTP 的 SSL 加密方式？<a href="http://service.mail.qq.com/cgi-bin/help?subtype=1&amp;&amp;id=28&amp;&amp;no=369)，已经可以得知，端口需要用" target="_blank" rel="noopener">http://service.mail.qq.com/cgi-bin/help?subtype=1&amp;&amp;id=28&amp;&amp;no=369)，已经可以得知，端口需要用</a> 465 或者 587,这两个我都试了一下，465 ok，587 fail。</p>
 <p>接着又会需要授权码。（什么是授权码，它又是如何设置？<a href="http://service.mail.qq.com/cgi-bin/help?subtype=1&amp;&amp;id=28&amp;&amp;no=1001256\r\n%27）" target="_blank" rel="noopener">http://service.mail.qq.com/cgi-bin/help?subtype=1&amp;&amp;id=28&amp;&amp;no=1001256\r\n%27）</a><br>个人理解，授权码是对通过第三方客户端登陆本方邮箱的一种安全验证。至于为什么非要一个授权码，留坑后面再填…</p>
 <p>至此，发一个很 <del>挫</del> 简单的邮件成就达成，可以继续下一步的精致工作了～</p>
+<p>更新：</p>
+<p>587是Gmail的SMTP端口，在编写加密SMTP的时候，程序运行显示<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">socket.error: [Errno 60] Operation timed out</span><br></pre></td></tr></table></figure></p>
+<p>前面587端口也不行，估计是网络问题，现在用的是医院的网，有防火墙，也许因为这个问题导致端口无法连接。</p>
 
       
     </div>
