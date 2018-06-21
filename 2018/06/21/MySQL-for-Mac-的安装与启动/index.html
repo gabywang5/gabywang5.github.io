@@ -86,10 +86,12 @@
 <meta property="og:site_name" content="MQ keeps coding!">
 <meta property="og:description" content="主要讲一下让人晕头转向的「环境变量」的配置。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-06-21T11:31:37.674Z">
+<meta property="og:image" content="https://github.com/gabywang5/Markdown-photos/raw/master/mysqlstart.png">
+<meta property="og:updated_time" content="2018-06-21T11:42:43.907Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="MySQL for Mac 的安装与启动">
 <meta name="twitter:description" content="主要讲一下让人晕头转向的「环境变量」的配置。">
+<meta name="twitter:image" content="https://github.com/gabywang5/Markdown-photos/raw/master/mysqlstart.png">
 
 
 
@@ -372,7 +374,7 @@
 <p>在文件里面添加一行<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">export PATH=$&#123;PATH&#125;:/usr/local/mysql/bin</span><br></pre></td></tr></table></figure></p>
 <p>现在重新打开一个bash，输入命令mysql –version就会出现：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">➜  ~ mysql --version</span><br><span class="line">mysql  Ver 8.0.11 for macos10.13 on x86_64 (MySQL Community Server - GPL)</span><br></pre></td></tr></table></figure></p>
 <p>继续输入以下命令启动mysql<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql -u root -p</span><br></pre></td></tr></table></figure></p>
-<p>至此，mysql成功启动！<br><img src="" alt=""></p>
+<p>至此，mysql成功启动！<br><img src="https://github.com/gabywang5/Markdown-photos/raw/master/mysqlstart.png" alt=""></p>
 <p>查看系统的PATH变量：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">➜  ~ echo $PATH</span><br><span class="line">/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Library/TeX/texbin:/opt/X11/bin:/usr</span><br></pre></td></tr></table></figure></p>
 <p>Plus：<br>贴两篇讲环境变量配置的博客<br><a href="https://www.jianshu.com/p/acb1f062a925" target="_blank" rel="noopener">https://www.jianshu.com/p/acb1f062a925</a></p>
 <p><a href="https://stackoverflow.com/questions/10577374/mysql-command-not-found-in-os-x-10-7" target="_blank" rel="noopener">https://stackoverflow.com/questions/10577374/mysql-command-not-found-in-os-x-10-7</a></p>
