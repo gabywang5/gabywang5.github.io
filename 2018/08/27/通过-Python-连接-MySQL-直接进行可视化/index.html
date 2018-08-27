@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="Python MySQL graph," />
 
 
 
@@ -79,19 +79,21 @@
 
 
 
-<meta name="description" content="很激动！感觉自己似乎理解了什么是傅立叶变换！Finally！嗯。。。懂了部分吧。。。下面记录一下自己的理解。">
+<meta name="description" content="经常要对 MySQL 查询到的数据进行可视化分析的话，有下面几种方法。">
+<meta name="keywords" content="Python MySQL graph">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Waht is the Fourier Transform? 到底什么是傅立叶变换?">
-<meta property="og:url" content="http://yoursite.com/2018/03/22/Waht-is-the-Fourier-Transform-到底什么是傅立叶变换/index.html">
+<meta property="og:title" content="通过 Python 连接 MySQL 直接进行可视化">
+<meta property="og:url" content="http://yoursite.com/2018/08/27/通过-Python-连接-MySQL-直接进行可视化/index.html">
 <meta property="og:site_name" content="MQ keeps coding!">
-<meta property="og:description" content="很激动！感觉自己似乎理解了什么是傅立叶变换！Finally！嗯。。。懂了部分吧。。。下面记录一下自己的理解。">
+<meta property="og:description" content="经常要对 MySQL 查询到的数据进行可视化分析的话，有下面几种方法。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://github.com/gabywang5/Markdown-photos/raw/master/fourier_1.png">
-<meta property="og:updated_time" content="2018-03-23T09:38:20.000Z">
+<meta property="og:image" content="https://github.com/gabywang5/Markdown-photos/raw/master/mysql.jpeg">
+<meta property="og:image" content="https://github.com/gabywang5/Markdown-photos/raw/master/mysql_python_error.jpeg">
+<meta property="og:updated_time" content="2018-08-27T11:52:15.969Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Waht is the Fourier Transform? 到底什么是傅立叶变换?">
-<meta name="twitter:description" content="很激动！感觉自己似乎理解了什么是傅立叶变换！Finally！嗯。。。懂了部分吧。。。下面记录一下自己的理解。">
-<meta name="twitter:image" content="https://github.com/gabywang5/Markdown-photos/raw/master/fourier_1.png">
+<meta name="twitter:title" content="通过 Python 连接 MySQL 直接进行可视化">
+<meta name="twitter:description" content="经常要对 MySQL 查询到的数据进行可视化分析的话，有下面几种方法。">
+<meta name="twitter:image" content="https://github.com/gabywang5/Markdown-photos/raw/master/mysql.jpeg">
 
 
 
@@ -121,13 +123,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/03/22/Waht-is-the-Fourier-Transform-到底什么是傅立叶变换/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/08/27/通过-Python-连接-MySQL-直接进行可视化/"/>
 
 
 
 
 
-  <title>Waht is the Fourier Transform? 到底什么是傅立叶变换? | MQ keeps coding!</title>
+  <title>通过 Python 连接 MySQL 直接进行可视化 | MQ keeps coding!</title>
   
 
 
@@ -274,7 +276,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/22/Waht-is-the-Fourier-Transform-到底什么是傅立叶变换/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/08/27/通过-Python-连接-MySQL-直接进行可视化/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="wangmq">
@@ -291,7 +293,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Waht is the Fourier Transform? 到底什么是傅立叶变换?</h1>
+          <h1 class="post-title" itemprop="name headline">通过 Python 连接 MySQL 直接进行可视化</h1>
         
 
         <div class="post-meta">
@@ -303,8 +305,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-22T21:21:50+08:00">
-                2018-03-22
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-08-27T19:14:38+08:00">
+                2018-08-27
               </time>
             
 
@@ -314,6 +316,28 @@
           </span>
 
           
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/MySQL/" itemprop="url" rel="index">
+                    <span itemprop="name">MySQL</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
 
           
             
@@ -322,9 +346,9 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2018/03/22/Waht-is-the-Fourier-Transform-到底什么是傅立叶变换/#comments" itemprop="discussionUrl">
+                <a href="/2018/08/27/通过-Python-连接-MySQL-直接进行可视化/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2018/03/22/Waht-is-the-Fourier-Transform-到底什么是傅立叶变换/" itemprop="commentCount"></span>
+                        data-disqus-identifier="2018/08/27/通过-Python-连接-MySQL-直接进行可视化/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -332,7 +356,7 @@
 
           
           
-             <span id="/2018/03/22/Waht-is-the-Fourier-Transform-到底什么是傅立叶变换/" class="leancloud_visitors" data-flag-title="Waht is the Fourier Transform? 到底什么是傅立叶变换?">
+             <span id="/2018/08/27/通过-Python-连接-MySQL-直接进行可视化/" class="leancloud_visitors" data-flag-title="通过 Python 连接 MySQL 直接进行可视化">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -363,15 +387,11 @@
       
 
       
-        <p>很激动！感觉自己似乎理解了什么是傅立叶变换！Finally！<br>嗯。。。懂了部分吧。。。<br>下面记录一下自己的理解。<br><a id="more"></a></p>
-<p>废话不多说，从what、why、how来讲讲什么是傅立叶变换。</p>
-<h4 id="what？"><a href="#what？" class="headerlink" title="what？"></a>what？</h4><p>傅立叶变换是用来将一个函数的<em>时域</em>变换为<em>频域</em>的方法。<br>比如下图，最上面这个黄色的函数，嗯，很不规则，也不知道到底是按照什么规律来变化的。</p>
-<p><img src="https://github.com/gabywang5/Markdown-photos/raw/master/fourier_1.png" alt=""></p>
-<p>但是，黄色函数却可以由虚线下面的五个函数复合而成。虚线下面的五个函数都是可以直接用函数来表示出来的。</p>
-<p>这样，一个看似很复杂毫无规律的函数分解成了5个规律的函数，把这5个函数看成是原函数的5个基本 component，可以叫做基本元素。</p>
-<p>所以如果我们想看两段语音是不是同一段语音，那我们可以经过傅立叶变换，得到这两段语音的基本元素，看看它们的基本元素是否完全一致，如果完全一致，那就是同一段语音，如果不是，则相反。（这一段其实是我自己yy的，我猜应该可以这么做吧。。。）</p>
-<p>傅立叶变换不仅可以提取时序函数的基本元素，还可以用在其他地方（还没了解，先留坑）</p>
-<h4 id="How"><a href="#How" class="headerlink" title="How?"></a>How?</h4><p>重点来了，傅立叶变换怎么就能把一个看似无章法的函数变换成几个规则函数的复合呢？</p>
+        <p>经常要对 MySQL 查询到的数据进行可视化分析的话，有下面几种方法。<br><a id="more"></a><br>1、把 MySQL 数据导出到 Excel，利用 Excel 进行图表的绘制；<br>2、<a href="https://moderndata.plot.ly/graph-data-from-mysql-database-in-python/" target="_blank" rel="noopener">https://moderndata.plot.ly/graph-data-from-mysql-database-in-python/</a><br>3、下载 Falcon SQL Client，MySQL 里面直接进行可视化的神器。</p>
+<p>关于第二种方法，需要注意的是第二步，STEP 2: CONNECT TO MYSQL FROM PYTHON<br><img src="https://github.com/gabywang5/Markdown-photos/raw/master/mysql.jpeg" alt=""></p>
+<p>在安装 MySQL-python的时候，出现了如下错误：<br><img src="https://github.com/gabywang5/Markdown-photos/raw/master/mysql_python_error.jpeg" alt=""></p>
+<p>这个时候需要进行如下操作：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">➜  ~ brew unlink mysql</span><br><span class="line">Unlinking /usr/local/Cellar/mysql/8.0.12... 79 symlinks removed</span><br><span class="line">➜  ~ brew install mysql-connector-c</span><br><span class="line">==&gt; Downloading https://homebrew.bintray.com/bottles/mysql-connector-c-6.1.11.hi</span><br><span class="line">######################################################################## 100.0%</span><br><span class="line">==&gt; Pouring mysql-connector-c--6.1.11.high_sierra.bottle.tar.gz</span><br><span class="line">🍺  /usr/local/Cellar/mysql-connector-c/6.1.11: 79 files, 15.3MB</span><br><span class="line">➜  ~ sudo pip install MySQL-python</span><br><span class="line">The directory &apos;/Users/meiqinwangs/Library/Caches/pip/http&apos; or its parent directory is not owned by the current user and the cache has been disabled. Please check the permissions and owner of that directory. If executing pip with sudo, you may want sudo&apos;s -H flag.</span><br><span class="line">The directory &apos;/Users/meiqinwangs/Library/Caches/pip&apos; or its parent directory is not owned by the current user and caching wheels has been disabled. check the permissions and owner of that directory. If executing pip with sudo, you may want sudo&apos;s -H flag.</span><br><span class="line">Collecting MySQL-python</span><br><span class="line">  Downloading https://files.pythonhosted.org/packages/a5/e9/51b544da85a36a68debe7a7091f068d802fc515a3a202652828c73453cad/MySQL-python-1.2.5.zip (108kB)</span><br><span class="line">    100% |████████████████████████████████| 112kB 599kB/s</span><br><span class="line">Installing collected packages: MySQL-python</span><br><span class="line">  Running setup.py install for MySQL-python ... done</span><br><span class="line">Successfully installed MySQL-python-1.2.5</span><br></pre></td></tr></table></figure></p>
+<p>主要参考了以下答案：<br><a href="https://blog.csdn.net/love_parents/article/details/80938818" target="_blank" rel="noopener">https://blog.csdn.net/love_parents/article/details/80938818</a><br><a href="https://stackoverflow.com/questions/50940302/installing-mysql-python-causes-command-clang-failed-with-exit-status-1-on-mac" target="_blank" rel="noopener">https://stackoverflow.com/questions/50940302/installing-mysql-python-causes-command-clang-failed-with-exit-status-1-on-mac</a><br><a href="https://stackoverflow.com/questions/44123874/dataframe-object-has-no-attribute-sort" target="_blank" rel="noopener">https://stackoverflow.com/questions/44123874/dataframe-object-has-no-attribute-sort</a></p>
 
       
     </div>
@@ -416,6 +436,12 @@
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/Python-MySQL-graph/" rel="tag"># Python MySQL graph</a>
+          
+        </div>
+      
 
       
       
@@ -425,8 +451,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/02/26/Mac上搭建GPU环境的糟心事/" rel="next" title="Mac上搭建GPU环境的糟心事">
-                <i class="fa fa-chevron-left"></i> Mac上搭建GPU环境的糟心事
+              <a href="/2018/07/19/第一个-Web-应用程序总结/" rel="next" title="第一个 Web 应用程序总结">
+                <i class="fa fa-chevron-left"></i> 第一个 Web 应用程序总结
               </a>
             
           </div>
@@ -434,10 +460,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/04/10/服务器与本地交互命令常用总结/" rel="prev" title="服务器与本地交互命令常用总结">
-                服务器与本地交互命令常用总结 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -499,17 +521,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            站点概览
-          </li>
-        </ul>
-      
 
-      <section class="site-overview-wrap sidebar-panel">
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -585,22 +598,6 @@
         </div>
       </section>
 
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#what？"><span class="nav-number">1.</span> <span class="nav-text">what？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#How"><span class="nav-number">2.</span> <span class="nav-text">How?</span></a></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
       
 
       
@@ -758,9 +755,9 @@
     
       <script type="text/javascript">
         var disqus_config = function () {
-          this.page.url = 'http://yoursite.com/2018/03/22/Waht-is-the-Fourier-Transform-到底什么是傅立叶变换/';
-          this.page.identifier = '2018/03/22/Waht-is-the-Fourier-Transform-到底什么是傅立叶变换/';
-          this.page.title = 'Waht is the Fourier Transform? 到底什么是傅立叶变换?';
+          this.page.url = 'http://yoursite.com/2018/08/27/通过-Python-连接-MySQL-直接进行可视化/';
+          this.page.identifier = '2018/08/27/通过-Python-连接-MySQL-直接进行可视化/';
+          this.page.title = '通过 Python 连接 MySQL 直接进行可视化';
         };
         var d = document, s = d.createElement('script');
         s.src = 'https://wangmq.disqus.com/embed.js';
