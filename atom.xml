@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-12-10T07:15:12.574Z</updated>
+  <updated>2018-12-23T10:53:44.978Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,26 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>RSS | 节省主动搜索的时间，追踪最新动向的神器 </title>
+    <link href="http://yoursite.com/2018/12/23/A-tool-that-helps-you-save-time-and-track-the-newest-info-you-cares/"/>
+    <id>http://yoursite.com/2018/12/23/A-tool-that-helps-you-save-time-and-track-the-newest-info-you-cares/</id>
+    <published>2018-12-23T07:51:50.000Z</published>
+    <updated>2018-12-23T10:53:44.978Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;此篇博客的缘起是因为，想要紧追CV领域的最新论文的动向，比如我想知道每天 arXiv 的 CV/ML/AI 下面又更新了哪些文章。但是主动地去查找效率太低下，所以通过 RSS 订阅来 track 最新动向，非常合适。这样一来，如果有论文更新，那么你就能收到提醒。同样的方法也适用于订阅你关注的人的博客。&lt;br&gt;
+    
+    </summary>
+    
+      <category term="Tool" scheme="http://yoursite.com/categories/Tool/"/>
+    
+    
+      <category term="RSS Hexo" scheme="http://yoursite.com/tags/RSS-Hexo/"/>
+    
+  </entry>
   
   <entry>
     <title>Tensorflow 的那些莫名其妙的warning</title>
@@ -358,24 +378,6 @@
       &lt;p&gt;为了看懂部分代码，临时学习了一下shell。如题所言，shell 短小精悍，专心一点的话，两个小时就学完了几本语法，能看懂 shell 文件了。下面就 shell 的一些关键语法也是常用语法进行总结。&lt;br&gt;
     
     </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>《拖拉一点也无妨》-- 读书笔记</title>
-    <link href="http://yoursite.com/2018/02/04/%E3%80%8A%E6%8B%96%E6%8B%89%E4%B8%80%E7%82%B9%E4%B9%9F%E6%97%A0%E5%A6%A8%E3%80%8B-%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/"/>
-    <id>http://yoursite.com/2018/02/04/《拖拉一点也无妨》-读书笔记/</id>
-    <published>2018-02-04T11:02:30.000Z</published>
-    <updated>2018-02-09T03:12:10.000Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;过年回家，一个星期了，都没进入好好钻研论文思路的状态，内心内疚又焦虑，上网查到了这本叫做《拖拉一点也无妨》的书籍，两个小时可以读完，我也是拖拖拉拉看了两天才搞定，觉得自己拖延症真心病入膏肓了，真要好好治治了！这本书并不旨在完全治愈拖延症，而是帮助我们减轻拖延症的负罪感、让我们明白，我们的拖延症再严重，也都还是正常的。换一种思维方式、认清自己的缺点，利用恰当的方式去治疗，还是可以抢救一下的！&lt;br&gt;
-    
-    </summary>
-    
-      <category term="书籍" scheme="http://yoursite.com/categories/%E4%B9%A6%E7%B1%8D/"/>
     
     
   </entry>
