@@ -1,0 +1,383 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>gaby</title>
+  
+  
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="http://yoursite.com/"/>
+  <updated>2018-12-10T07:15:12.574Z</updated>
+  <id>http://yoursite.com/</id>
+  
+  <author>
+    <name>gaby</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Tensorflow 的那些莫名其妙的warning</title>
+    <link href="http://yoursite.com/2018/12/10/Tensorflow-%E7%9A%84%E9%82%A3%E4%BA%9B%E8%8E%AB%E5%90%8D%E5%85%B6%E5%A6%99%E7%9A%84warning/"/>
+    <id>http://yoursite.com/2018/12/10/Tensorflow-的那些莫名其妙的warning/</id>
+    <published>2018-12-10T06:12:29.000Z</published>
+    <updated>2018-12-10T07:15:12.574Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;此贴专门记录学习 tensorflow 的过程中，遇到的那些 warning。这些 warning 可能不痛不痒，但是强迫症患者看着实在太难受啦！能消除一些就消除一些吧！&lt;br&gt;
+    
+    </summary>
+    
+      <category term="study" scheme="http://yoursite.com/categories/study/"/>
+    
+    
+      <category term="tensorflow" scheme="http://yoursite.com/tags/tensorflow/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>通过 Python 连接 MySQL 直接进行可视化</title>
+    <link href="http://yoursite.com/2018/08/27/%E9%80%9A%E8%BF%87-Python-%E8%BF%9E%E6%8E%A5-MySQL-%E7%9B%B4%E6%8E%A5%E8%BF%9B%E8%A1%8C%E5%8F%AF%E8%A7%86%E5%8C%96/"/>
+    <id>http://yoursite.com/2018/08/27/通过-Python-连接-MySQL-直接进行可视化/</id>
+    <published>2018-08-27T11:14:38.000Z</published>
+    <updated>2018-08-27T11:52:15.969Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;经常要对 MySQL 查询到的数据进行可视化分析的话，有下面几种方法。&lt;br&gt;
+    
+    </summary>
+    
+      <category term="MySQL" scheme="http://yoursite.com/categories/MySQL/"/>
+    
+    
+      <category term="Python MySQL graph" scheme="http://yoursite.com/tags/Python-MySQL-graph/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>第一个 Web 应用程序总结</title>
+    <link href="http://yoursite.com/2018/07/19/%E7%AC%AC%E4%B8%80%E4%B8%AA-Web-%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F%E6%80%BB%E7%BB%93/"/>
+    <id>http://yoursite.com/2018/07/19/第一个-Web-应用程序总结/</id>
+    <published>2018-07-19T07:38:37.000Z</published>
+    <updated>2018-07-19T08:49:23.517Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;第一个 web 应用程序，选择了自己很感兴趣的网站设计，项目主要是一个学习笔记记录网站，功能非常精剪，包括：1、用户的注册、登录、登出；2、主题、条目的增删改。在本地确定能 work 之后，将其部署到服务器，以使任何有网络的用户都能访问和使用网站。&lt;br&gt;
+    
+    </summary>
+    
+      <category term="python" scheme="http://yoursite.com/categories/python/"/>
+    
+    
+      <category term="python" scheme="http://yoursite.com/tags/python/"/>
+    
+      <category term="web" scheme="http://yoursite.com/tags/web/"/>
+    
+      <category term="Django" scheme="http://yoursite.com/tags/Django/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Python学习阶段总结</title>
+    <link href="http://yoursite.com/2018/07/15/Python%E5%AD%A6%E4%B9%A0%E9%98%B6%E6%AE%B5%E6%80%BB%E7%BB%93/"/>
+    <id>http://yoursite.com/2018/07/15/Python学习阶段总结/</id>
+    <published>2018-07-15T06:30:37.000Z</published>
+    <updated>2018-07-15T06:45:53.777Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;7 月伊始志 7 月中，这半个月，学习完了 Python 的基础知识。接下来可以着手开发有意思的实际项目了！开心！在此，非常推荐一本书，让我每天的学习都特别地有动力！感激作者和译者！书名为《Python编程 从入门到实践》，看完此书才明白为什么它在当当计算机与网络图书排行榜上位列第一。非常适合新手入门，堪称保姆级别的教科书。&lt;br&gt;
+    
+    </summary>
+    
+      <category term="python" scheme="http://yoursite.com/categories/python/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>python replace() 方法易犯错点</title>
+    <link href="http://yoursite.com/2018/07/12/python-replace-%E6%96%B9%E6%B3%95%E6%98%93%E7%8A%AF%E9%94%99%E7%82%B9/"/>
+    <id>http://yoursite.com/2018/07/12/python-replace-方法易犯错点/</id>
+    <published>2018-07-12T08:27:21.000Z</published>
+    <updated>2018-07-12T08:39:47.223Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;如题，易犯错点在于，replace() 并不改变字符串本身，而是返回被操作字符串的副本，如果要获得被替换后的字符串，访问被操作字符串是没用的，要访问副本才行。&lt;br&gt;
+    
+    </summary>
+    
+      <category term="python" scheme="http://yoursite.com/categories/python/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>抓娃娃机抓娃娃心得体会</title>
+    <link href="http://yoursite.com/2018/07/03/%E6%8A%93%E5%A8%83%E5%A8%83%E6%9C%BA%E6%8A%93%E5%A8%83%E5%A8%83%E5%BF%83%E5%BE%97%E4%BD%93%E4%BC%9A/"/>
+    <id>http://yoursite.com/2018/07/03/抓娃娃机抓娃娃心得体会/</id>
+    <published>2018-07-03T01:46:55.000Z</published>
+    <updated>2018-07-30T05:53:17.207Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;这题目取的也是有点密集恐惧症…最近沉迷于抓娃娃无法自拔，从一开始的小白到现在 get 到了一点经验，看到抓到的娃娃这么多这么卡哇伊，不能就让它们晾在那里啊，一定要 &lt;del&gt;得瑟得瑟&lt;/del&gt; 晒出来，跟大家 &lt;del&gt;炫耀&lt;/del&gt; 分享一下我的心得体会。&lt;br&gt;
+    
+    </summary>
+    
+      <category term="life" scheme="http://yoursite.com/categories/life/"/>
+    
+    
+      <category term="entertainment" scheme="http://yoursite.com/tags/entertainment/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>如何在 Sublime 中直接调试程序</title>
+    <link href="http://yoursite.com/2018/06/29/%E5%A6%82%E4%BD%95%E5%9C%A8-Sublime-%E4%B8%AD%E7%9B%B4%E6%8E%A5%E8%B0%83%E8%AF%95%E7%A8%8B%E5%BA%8F/"/>
+    <id>http://yoursite.com/2018/06/29/如何在-Sublime-中直接调试程序/</id>
+    <published>2018-06-29T09:13:47.000Z</published>
+    <updated>2018-06-29T09:39:07.778Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;在 Sublime 中打代码是一件很爽的事情，但是追根究底，Sublime 只是一个文本编辑器，写好代码以后，如何方便快捷的进行调试呢？可不可以一个快捷键就可以在 sublime 中看到程序的运行结果呢？&lt;br&gt;
+    
+    </summary>
+    
+      <category term="Sublime" scheme="http://yoursite.com/categories/Sublime/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>MySQL for Mac 的安装与启动</title>
+    <link href="http://yoursite.com/2018/06/21/MySQL-for-Mac-%E7%9A%84%E5%AE%89%E8%A3%85%E4%B8%8E%E5%90%AF%E5%8A%A8/"/>
+    <id>http://yoursite.com/2018/06/21/MySQL-for-Mac-的安装与启动/</id>
+    <published>2018-06-21T07:23:32.000Z</published>
+    <updated>2018-06-22T01:03:39.654Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;主要讲一下让人晕头转向的「环境变量」的配置。&lt;br&gt;
+    
+    </summary>
+    
+      <category term="MySQL" scheme="http://yoursite.com/categories/MySQL/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>POP3收取邮件</title>
+    <link href="http://yoursite.com/2018/06/20/POP3%E6%94%B6%E5%8F%96%E9%82%AE%E4%BB%B6/"/>
+    <id>http://yoursite.com/2018/06/20/POP3收取邮件/</id>
+    <published>2018-06-20T07:35:15.000Z</published>
+    <updated>2018-06-21T04:32:43.517Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;POP3 收取邮件的原理比较简单。&lt;br&gt;根据上一篇 SMTP 的文章的总结图，要收取邮件，那就只用编写一个 MUA，进行两步：&lt;br&gt;第一步，先从 MDA 获取邮件到本地；第二步，解析本地邮件（因为从 MDA 获取到的邮件是已经编码了的，需要解析，才能正常 display 给用户）&lt;br&gt;
+    
+    </summary>
+    
+      <category term="python" scheme="http://yoursite.com/categories/python/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>写一个用python发email的小程序</title>
+    <link href="http://yoursite.com/2018/06/18/%E5%86%99%E4%B8%80%E4%B8%AA%E7%94%A8python%E5%8F%91email%E7%9A%84%E5%B0%8F%E7%A8%8B%E5%BA%8F/"/>
+    <id>http://yoursite.com/2018/06/18/写一个用python发email的小程序/</id>
+    <published>2018-06-18T14:21:20.000Z</published>
+    <updated>2018-06-20T06:41:14.620Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;一个 python 小程序，自己可以写一个发 email 的第三方客户端，想想还是蛮激动的…&lt;br&gt;
+    
+    </summary>
+    
+      <category term="python" scheme="http://yoursite.com/categories/python/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Sublime 实用快捷键</title>
+    <link href="http://yoursite.com/2018/06/12/Sublime-%E5%AE%9E%E7%94%A8%E5%BF%AB%E6%8D%B7%E9%94%AE/"/>
+    <id>http://yoursite.com/2018/06/12/Sublime-实用快捷键/</id>
+    <published>2018-06-12T09:08:11.000Z</published>
+    <updated>2018-06-20T07:46:58.423Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;本篇记录一些用 Sublime 打代码过程中能够提高效率的快捷键。&lt;br&gt;
+    
+    </summary>
+    
+      <category term="Sublime" scheme="http://yoursite.com/categories/Sublime/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>一个小题目</title>
+    <link href="http://yoursite.com/2018/06/10/%E4%B8%80%E4%B8%AA%E5%B0%8F%E9%A2%98%E7%9B%AE/"/>
+    <id>http://yoursite.com/2018/06/10/一个小题目/</id>
+    <published>2018-06-10T12:28:10.000Z</published>
+    <updated>2018-06-12T04:50:38.509Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;在看廖雪峰老师的python教程-常用内建模块-struct这一小节的时候，开头就看到这个题目，也许是距离之前上计算机基础课已经很久了，乍一看来好像很基础的一个题目竟然计算了很久，看来基础要及时巩固才行。&lt;br&gt;
+    
+    </summary>
+    
+      <category term="python" scheme="http://yoursite.com/categories/python/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>python 面向对象程序设计 Object Oriented Programming (OOP) 要点</title>
+    <link href="http://yoursite.com/2018/06/05/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1-Object-Oriented-Programming-OOP/"/>
+    <id>http://yoursite.com/2018/06/05/面向对象程序设计-Object-Oriented-Programming-OOP/</id>
+    <published>2018-06-05T12:01:25.000Z</published>
+    <updated>2018-06-10T13:29:00.143Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;总结记录一下OOP的关键点。&lt;br&gt;
+    
+    </summary>
+    
+      <category term="python" scheme="http://yoursite.com/categories/python/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>python学习归纳总结</title>
+    <link href="http://yoursite.com/2018/06/04/python%E5%AD%A6%E4%B9%A0%E5%BD%92%E7%BA%B3%E6%80%BB%E7%BB%93/"/>
+    <id>http://yoursite.com/2018/06/04/python学习归纳总结/</id>
+    <published>2018-06-04T05:10:00.000Z</published>
+    <updated>2018-06-04T13:29:17.634Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;python 语法知识学习笔记。&lt;br&gt;
+    
+    </summary>
+    
+      <category term="python" scheme="http://yoursite.com/categories/python/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Python系统变量__name__的作用</title>
+    <link href="http://yoursite.com/2018/06/03/Python%E7%B3%BB%E7%BB%9F%E5%8F%98%E9%87%8F-name-%E7%9A%84%E4%BD%9C%E7%94%A8/"/>
+    <id>http://yoursite.com/2018/06/03/Python系统变量-name-的作用/</id>
+    <published>2018-06-03T12:52:57.000Z</published>
+    <updated>2018-06-03T14:04:05.577Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;学习 python 模块的使用时，关于系统变量 __name__ 的作用到底是什么有点搞不清。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Python" scheme="http://yoursite.com/categories/Python/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>服务器与本地交互命令常用总结</title>
+    <link href="http://yoursite.com/2018/04/10/%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B8%8E%E6%9C%AC%E5%9C%B0%E4%BA%A4%E4%BA%92%E5%91%BD%E4%BB%A4%E5%B8%B8%E7%94%A8%E6%80%BB%E7%BB%93/"/>
+    <id>http://yoursite.com/2018/04/10/服务器与本地交互命令常用总结/</id>
+    <published>2018-04-10T05:41:40.000Z</published>
+    <updated>2018-04-10T05:50:23.490Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;记录下来，以备不时之需。&lt;br&gt;
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Waht is the Fourier Transform? 到底什么是傅立叶变换?</title>
+    <link href="http://yoursite.com/2018/03/22/Waht-is-the-Fourier-Transform-%E5%88%B0%E5%BA%95%E4%BB%80%E4%B9%88%E6%98%AF%E5%82%85%E7%AB%8B%E5%8F%B6%E5%8F%98%E6%8D%A2/"/>
+    <id>http://yoursite.com/2018/03/22/Waht-is-the-Fourier-Transform-到底什么是傅立叶变换/</id>
+    <published>2018-03-22T13:21:50.000Z</published>
+    <updated>2018-03-23T09:38:20.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;很激动！感觉自己似乎理解了什么是傅立叶变换！Finally！&lt;br&gt;嗯。。。懂了部分吧。。。&lt;br&gt;下面记录一下自己的理解。&lt;br&gt;
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Mac上搭建GPU环境的糟心事</title>
+    <link href="http://yoursite.com/2018/02/26/Mac%E4%B8%8A%E6%90%AD%E5%BB%BAGPU%E7%8E%AF%E5%A2%83%E7%9A%84%E7%B3%9F%E5%BF%83%E4%BA%8B/"/>
+    <id>http://yoursite.com/2018/02/26/Mac上搭建GPU环境的糟心事/</id>
+    <published>2018-02-26T03:49:25.000Z</published>
+    <updated>2018-02-26T07:55:41.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;之前经常碰到一个技术问题解决了半天最后无疾而终，便会关掉浏览器所有 tab，完全忘记此事，全当遭遇了一场狂风暴雨努力抗争但最终还是狼狈收场。现在觉得自己付出的时间，无论最终是否得到回报，还是把这个过程记录下来为好，一是可以借机重新整理处理问题的思路，在这个过程中，可以反思解决问题的逻辑是否清晰，完善自己解决问题的能力；二是我总觉得自己不够努力，做事太容易放弃，即使做一件事情没有成功，但是记录下这个过程，也是自己有努力去尝试的一个见证吧。&lt;br&gt;
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>短小精悍的shell</title>
+    <link href="http://yoursite.com/2018/02/23/%E7%9F%AD%E5%B0%8F%E7%B2%BE%E6%82%8D%E7%9A%84shell/"/>
+    <id>http://yoursite.com/2018/02/23/短小精悍的shell/</id>
+    <published>2018-02-23T08:14:54.000Z</published>
+    <updated>2018-02-23T09:11:10.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;为了看懂部分代码，临时学习了一下shell。如题所言，shell 短小精悍，专心一点的话，两个小时就学完了几本语法，能看懂 shell 文件了。下面就 shell 的一些关键语法也是常用语法进行总结。&lt;br&gt;
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>《拖拉一点也无妨》-- 读书笔记</title>
+    <link href="http://yoursite.com/2018/02/04/%E3%80%8A%E6%8B%96%E6%8B%89%E4%B8%80%E7%82%B9%E4%B9%9F%E6%97%A0%E5%A6%A8%E3%80%8B-%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/"/>
+    <id>http://yoursite.com/2018/02/04/《拖拉一点也无妨》-读书笔记/</id>
+    <published>2018-02-04T11:02:30.000Z</published>
+    <updated>2018-02-09T03:12:10.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;过年回家，一个星期了，都没进入好好钻研论文思路的状态，内心内疚又焦虑，上网查到了这本叫做《拖拉一点也无妨》的书籍，两个小时可以读完，我也是拖拖拉拉看了两天才搞定，觉得自己拖延症真心病入膏肓了，真要好好治治了！这本书并不旨在完全治愈拖延症，而是帮助我们减轻拖延症的负罪感、让我们明白，我们的拖延症再严重，也都还是正常的。换一种思维方式、认清自己的缺点，利用恰当的方式去治疗，还是可以抢救一下的！&lt;br&gt;
+    
+    </summary>
+    
+      <category term="书籍" scheme="http://yoursite.com/categories/%E4%B9%A6%E7%B1%8D/"/>
+    
+    
+  </entry>
+  
+</feed>
