@@ -89,7 +89,7 @@
 <meta property="og:site_name" content="gaby">
 <meta property="og:description" content="此篇博客的缘起是因为，想要紧追CV领域的最新论文的动向，比如我想知道每天 arXiv 的 CV/ML/AI 下面又更新了哪些文章。但是主动地去查找效率太低下，所以通过 RSS 订阅来 track 最新动向，非常合适。这样一来，如果有论文更新，那么你就能收到提醒。同样的方法也适用于订阅你关注的人的博客。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-12-23T10:58:15.131Z">
+<meta property="og:updated_time" content="2018-12-23T11:01:18.487Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="RSS | 节省主动搜索的时间，追踪最新动向的神器 ">
 <meta name="twitter:description" content="此篇博客的缘起是因为，想要紧追CV领域的最新论文的动向，比如我想知道每天 arXiv 的 CV/ML/AI 下面又更新了哪些文章。但是主动地去查找效率太低下，所以通过 RSS 订阅来 track 最新动向，非常合适。这样一来，如果有论文更新，那么你就能收到提醒。同样的方法也适用于订阅你关注的人的博客。">
@@ -389,11 +389,8 @@
         <p>此篇博客的缘起是因为，想要紧追CV领域的最新论文的动向，比如我想知道每天 arXiv 的 CV/ML/AI 下面又更新了哪些文章。但是主动地去查找效率太低下，所以通过 RSS 订阅来 track 最新动向，非常合适。这样一来，如果有论文更新，那么你就能收到提醒。同样的方法也适用于订阅你关注的人的博客。<br><a id="more"></a><br>完成 RSS 订阅论文/博客的整个过程分为下面几步。<br>1、选定一个 RSS 订阅 app 或者直接网页版；<br>2、在订阅 app 中输入订阅源即可；<br>btw，如果你有个人博客，可以看一下如果为你的博客设置 RSS，这样别人可以订阅你的博客，如果你有更新博客，别人就会收到。</p>
 <h4 id="什么是-RSS"><a href="#什么是-RSS" class="headerlink" title="什么是 RSS"></a>什么是 RSS</h4><p>参考这篇博客，写的非常简明易懂，感谢作者。<br><a href="https://blog.werner.wiki/what-is-rss-subscription/#comment-40" target="_blank" rel="noopener">https://blog.werner.wiki/what-is-rss-subscription/#comment-40</a></p>
 <h4 id="RSS-订阅-app-推荐"><a href="#RSS-订阅-app-推荐" class="headerlink" title="RSS 订阅 app 推荐"></a>RSS 订阅 app 推荐</h4><p>Reeder<br>Inoreader<br>其他……<br>这两款是普遍推荐的最多的。我个人用的是 Reeder ios 版的 app，对比 Inoreader，我觉得 Reeder 界面更加简洁，未读论文通过信息流的方式滚动展示，一次显示一篇论文的 abstract，不用像 Inoreader 一样进行二次点击，节省时间。</p>
-<h4 id="Hexo-如何配置-RSS"><a href="#Hexo-如何配置-RSS" class="headerlink" title="Hexo 如何配置 RSS"></a>Hexo 如何配置 RSS</h4><p>如果你是以 Hexo 为博客架构，那么为其配置 RSS 非常简单。只需要：</p>
-<pre><code>1. 安装 hexo-generator-feed 插件
-2. 修改博客配置文件 _config.yml
-3. 修改主题配置文件（如果你的主题是 **next**，那么则无需此步）
-</code></pre><h5 id="1-安装-hexo-generator-feed-插件"><a href="#1-安装-hexo-generator-feed-插件" class="headerlink" title="1. 安装 hexo-generator-feed 插件"></a>1. 安装 hexo-generator-feed 插件</h5><p>进入到你的博客根目录（也就是你每次进行博客部署的目录），然后：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-generator-feed --save</span><br></pre></td></tr></table></figure></p>
+<h4 id="Hexo-如何配置-RSS"><a href="#Hexo-如何配置-RSS" class="headerlink" title="Hexo 如何配置 RSS"></a>Hexo 如何配置 RSS</h4><p>如果你是以 Hexo 为博客架构，那么为其配置 RSS 非常简单。只需要：<br>    安装 hexo-generator-feed 插件<br>    修改博客配置文件 _config.yml<br>    修改主题配置文件（如果你的主题是 next，那么则无需此步）</p>
+<h5 id="1-安装-hexo-generator-feed-插件"><a href="#1-安装-hexo-generator-feed-插件" class="headerlink" title="1. 安装 hexo-generator-feed 插件"></a>1. 安装 hexo-generator-feed 插件</h5><p>进入到你的博客根目录（也就是你每次进行博客部署的目录），然后：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-generator-feed --save</span><br></pre></td></tr></table></figure></p>
 <h5 id="2-修改博客配置文件-config-yml"><a href="#2-修改博客配置文件-config-yml" class="headerlink" title="2. 修改博客配置文件 _config.yml"></a>2. 修改博客配置文件 _config.yml</h5><p>在 _config.yml 中添加以下代码：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"># Extensions</span><br><span class="line">## Plugins: http://hexo.io/plugins/</span><br><span class="line"># RSS subscription</span><br><span class="line">plugin:</span><br><span class="line">- hexo-generator-feed</span><br><span class="line">feed:</span><br><span class="line">  type: atom</span><br><span class="line">  path: atom.xml</span><br><span class="line">  limit: 20</span><br><span class="line">  hub:</span><br><span class="line">  content:</span><br><span class="line">  content_limit: 140</span><br><span class="line">  content_limit_delim: &apos; &apos;</span><br><span class="line">  order_by: -date</span><br></pre></td></tr></table></figure></p>
 <p>做完这步，如果你的 theme 是 <em>next</em>，那么则全部完成。接下来只需要 hexo clean、hexo g、hexo d 即可完成。如果是其他的主题，那么则需要继续进行接下来的第 3 步。</p>
 <h5 id="3-修改主题配置文件"><a href="#3-修改主题配置文件" class="headerlink" title="3. 修改主题配置文件"></a>3. 修改主题配置文件</h5><p>参考此篇博客：<a href="http://hanhailong.com/2015/10/08/Hexo%E2%80%94%E6%AD%A3%E7%A1%AE%E6%B7%BB%E5%8A%A0RSS%E8%AE%A2%E9%98%85/" target="_blank" rel="noopener">http://hanhailong.com/2015/10/08/Hexo%E2%80%94%E6%AD%A3%E7%A1%AE%E6%B7%BB%E5%8A%A0RSS%E8%AE%A2%E9%98%85/</a></p>
@@ -409,7 +406,7 @@
     
       <div>
         <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
-  <div>如果对你有帮助，欢迎资瓷我！</div>
+  <div>您的打赏将鼓励我创作更加优质的内容！</div>
   <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
     <span>打赏</span>
   </button>
