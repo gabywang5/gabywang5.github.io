@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-12-23T11:10:08.484Z</updated>
+  <updated>2019-01-09T14:04:10.184Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,26 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>背单词这件小事 | 记在扇贝单词打卡 400 天这一天</title>
+    <link href="http://yoursite.com/2019/01/09/%E8%83%8C%E5%8D%95%E8%AF%8D%E8%BF%99%E4%BB%B6%E5%B0%8F%E4%BA%8B-%E8%AE%B0%E5%9C%A8%E6%89%87%E8%B4%9D%E5%8D%95%E8%AF%8D%E6%89%93%E5%8D%A1-400-%E5%A4%A9%E8%BF%99%E4%B8%80%E5%A4%A9/"/>
+    <id>http://yoursite.com/2019/01/09/背单词这件小事-记在扇贝单词打卡-400-天这一天/</id>
+    <published>2019-01-09T07:16:20.000Z</published>
+    <updated>2019-01-09T14:04:10.184Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;聊聊关于背单词这件小事的心得体会。&lt;br&gt;
+    
+    </summary>
+    
+      <category term="study" scheme="http://yoursite.com/categories/study/"/>
+    
+    
+      <category term="背单词 花钱" scheme="http://yoursite.com/tags/%E8%83%8C%E5%8D%95%E8%AF%8D-%E8%8A%B1%E9%92%B1/"/>
+    
+  </entry>
   
   <entry>
     <title>RSS | 节省主动搜索的时间，追踪最新动向的神器 </title>
@@ -360,22 +380,6 @@
     <summary type="html">
     
       &lt;p&gt;之前经常碰到一个技术问题解决了半天最后无疾而终，便会关掉浏览器所有 tab，完全忘记此事，全当遭遇了一场狂风暴雨努力抗争但最终还是狼狈收场。现在觉得自己付出的时间，无论最终是否得到回报，还是把这个过程记录下来为好，一是可以借机重新整理处理问题的思路，在这个过程中，可以反思解决问题的逻辑是否清晰，完善自己解决问题的能力；二是我总觉得自己不够努力，做事太容易放弃，即使做一件事情没有成功，但是记录下这个过程，也是自己有努力去尝试的一个见证吧。&lt;br&gt;
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>短小精悍的shell</title>
-    <link href="http://yoursite.com/2018/02/23/%E7%9F%AD%E5%B0%8F%E7%B2%BE%E6%82%8D%E7%9A%84shell/"/>
-    <id>http://yoursite.com/2018/02/23/短小精悍的shell/</id>
-    <published>2018-02-23T08:14:54.000Z</published>
-    <updated>2018-02-23T09:11:10.000Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;为了看懂部分代码，临时学习了一下shell。如题所言，shell 短小精悍，专心一点的话，两个小时就学完了几本语法，能看懂 shell 文件了。下面就 shell 的一些关键语法也是常用语法进行总结。&lt;br&gt;
     
     </summary>
     
