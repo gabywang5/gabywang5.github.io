@@ -1,0 +1,975 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.3">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.3" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="numpy," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="gaby" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="记录一下，在写 logistic regression 的 loss 的代码时，发现的一些问题和收获。">
+<meta name="keywords" content="numpy">
+<meta property="og:type" content="article">
+<meta property="og:title" content="由一个题目谈到 np.dot 和 np.multiply 具体怎么不同">
+<meta property="og:url" content="http://yoursite.com/2019/01/16/由一个题目谈到-np-dot-和-np-multiply-具体怎么不同/index.html">
+<meta property="og:site_name" content="gaby">
+<meta property="og:description" content="记录一下，在写 logistic regression 的 loss 的代码时，发现的一些问题和收获。">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-01-16T09:36:00.475Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="由一个题目谈到 np.dot 和 np.multiply 具体怎么不同">
+<meta name="twitter:description" content="记录一下，在写 logistic regression 的 loss 的代码时，发现的一些问题和收获。">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.3',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/01/16/由一个题目谈到-np-dot-和-np-multiply-具体怎么不同/"/>
+
+
+
+
+
+  <title>由一个题目谈到 np.dot 和 np.multiply 具体怎么不同 | gaby</title>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?07b07fbde62eb2002a84a7e1c8bcff79";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">gaby</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/01/16/由一个题目谈到-np-dot-和-np-multiply-具体怎么不同/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="gaby">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="gaby">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">由一个题目谈到 np.dot 和 np.multiply 具体怎么不同</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-01-16T16:47:17+08:00">
+                2019-01-16
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/study/" itemprop="url" rel="index">
+                    <span itemprop="name">study</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/01/16/由一个题目谈到-np-dot-和-np-multiply-具体怎么不同/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2019/01/16/由一个题目谈到-np-dot-和-np-multiply-具体怎么不同/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2019/01/16/由一个题目谈到-np-dot-和-np-multiply-具体怎么不同/" class="leancloud_visitors" data-flag-title="由一个题目谈到 np.dot 和 np.multiply 具体怎么不同">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>记录一下，在写 logistic regression 的 loss 的代码时，发现的一些问题和收获。<br><a id="more"></a></p>
+<h4 id="善用-assertion-语句"><a href="#善用-assertion-语句" class="headerlink" title="善用 assertion 语句"></a>善用 assertion 语句</h4><p>Like Andrew said, “Don’t be shy to use assertion sentence”. 不吝啬于用 assertion 语句，可以帮助写代码的过程中及时发现关于维度的错误。</p>
+<h4 id="np-dot-是个磨人的小妖精"><a href="#np-dot-是个磨人的小妖精" class="headerlink" title="np.dot 是个磨人的小妖精"></a>np.dot 是个磨人的小妖精</h4><p>在写这个作业之前，我对 np.dot 的了解实在是太肤浅了，这次来个小总结。</p>
+<h5 id="1、a、b-都是一维数组，做内积"><a href="#1、a、b-都是一维数组，做内积" class="headerlink" title="1、a、b 都是一维数组，做内积"></a>1、a、b 都是一维数组，做内积</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; a = [1,2,3,4]</span><br><span class="line">&gt;&gt;&gt; b = [1,2,3,4]</span><br><span class="line">&gt;&gt;&gt; np.dot(a,b)</span><br><span class="line">30</span><br></pre></td></tr></table></figure>
+<h5 id="2、都是二维数组，做矩阵相乘，建议用-matmul"><a href="#2、都是二维数组，做矩阵相乘，建议用-matmul" class="headerlink" title="2、都是二维数组，做矩阵相乘，建议用 matmul"></a>2、都是二维数组，做矩阵相乘，建议用 matmul</h5><p>a.shape:(2,3)<br>b.shape:(3,2)<br>能够正确相乘<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; a = [[1,2,3],[4,5,6]]</span><br><span class="line">&gt;&gt;&gt; b = [[1,2],[3,4],[5,6]]</span><br><span class="line">&gt;&gt;&gt; np.dot(a,b)</span><br><span class="line">[[22 28]</span><br><span class="line"> [49 64]]</span><br><span class="line"> &lt;!-- 等同于 --&gt;</span><br><span class="line">&gt;&gt;&gt; np.matmul(a,b)</span><br><span class="line">array([[22, 28],</span><br><span class="line">       [49, 64]])</span><br></pre></td></tr></table></figure></p>
+<p>a.shape:(2,3)<br>b.shape:(2,3)<br>报错！<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; b = [[1,2,3],[4,5,6]]</span><br><span class="line">&gt;&gt;&gt; np.dot(a,b)</span><br><span class="line">Traceback (most recent call last):</span><br><span class="line">  File &quot;&lt;stdin&gt;&quot;, line 1, in &lt;module&gt;</span><br><span class="line">ValueError: shapes (2,3) and (2,3) not aligned: 3 (dim 1) != 2 (dim 0)</span><br></pre></td></tr></table></figure></p>
+<h5 id="3、其中一个是标量（0维）"><a href="#3、其中一个是标量（0维）" class="headerlink" title="3、其中一个是标量（0维）"></a>3、其中一个是标量（0维）</h5><p>很简单，做 broadcasting<br>官网说 numpy.multiply(a, b) or a * b is preferred，但是实际上，只是等同于 numpy.multiply(a, b)，不等同于 a * b。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; b = 2</span><br><span class="line">&gt;&gt;&gt; np.dot(a,b)</span><br><span class="line">[[ 2  4  6]</span><br><span class="line"> [ 8 10 12]]</span><br><span class="line">&lt;!-- 等同于 --&gt;</span><br><span class="line">&gt;&gt;&gt; np.multiply(a,b)</span><br><span class="line">[[ 2  4  6]</span><br><span class="line"> [ 8 10 12]]</span><br><span class="line">&lt;!-- 不等同于 --&gt;</span><br><span class="line">&gt;&gt;&gt; a*b</span><br><span class="line">[[1, 2, 3], [4, 5, 6], [1, 2, 3], [4, 5, 6]]</span><br></pre></td></tr></table></figure></p>
+<h5 id="4、a-是-N-维，b-是一维"><a href="#4、a-是-N-维，b-是一维" class="headerlink" title="4、a 是 N 维，b 是一维"></a>4、a 是 N 维，b 是一维</h5><p>a 和 b 的最后一维相乘<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; a = np.random.randn(2,3,4)</span><br><span class="line">&gt;&gt;&gt; b = np.random.randn(4)</span><br><span class="line">&gt;&gt;&gt; np.dot(a,b).shape</span><br><span class="line">(2, 3)</span><br></pre></td></tr></table></figure></p>
+<h5 id="5、a-是-N（N-gt-2）-维-b-是-M（M-gt-2）-维"><a href="#5、a-是-N（N-gt-2）-维-b-是-M（M-gt-2）-维" class="headerlink" title="5、a 是 N（N&gt;=2） 维, b 是 M（M&gt;=2） 维"></a>5、a 是 N（N&gt;=2） 维, b 是 M（M&gt;=2） 维</h5><p>a 的最后一维与 b 的倒数第二维相乘<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; a.shape</span><br><span class="line">(2, 3, 4)</span><br><span class="line">&gt;&gt;&gt; b = np.random.randn(4,2)</span><br><span class="line">&gt;&gt;&gt; np.dot(a,b).shape</span><br><span class="line">(2, 3, 2)</span><br><span class="line">&lt;!-- 又一个例子 --&gt;</span><br><span class="line">&gt;&gt;&gt; b.shape</span><br><span class="line">(5, 4, 6)</span><br><span class="line">&gt;&gt;&gt; np.dot(a,b).shape</span><br><span class="line">(2, 3, 5, 6)</span><br></pre></td></tr></table></figure></p>
+<h4 id="这个-loss-的代码到底该怎么写"><a href="#这个-loss-的代码到底该怎么写" class="headerlink" title="这个 loss 的代码到底该怎么写"></a>这个 loss 的代码到底该怎么写</h4><p>logistic regression 的 loss 数学表达式是这样的：</p>
+<p><image src="https://github.com/gabywang5/Markdown-photos/raw/master/loss.png"><br>一开始，我写的代码是这样的(大错特错)：<br><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cost = -(<span class="number">1</span>/m)*(np.sum(np.dot(Y.T,np.log(A))+np.dot((<span class="number">1</span>-Y).T,np.log(<span class="number">1</span>-A))))</span><br></pre></td></tr></table></figure></image></p>
+<p>正确的应该是这样的：<br><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cost = <span class="number">-1</span>/m * np.sum( np.dot(np.log(A), Y.T) + np.dot(np.log(<span class="number">1</span>-A), (<span class="number">1</span>-Y.T)))</span><br></pre></td></tr></table></figure></p>
+<p>或者<br><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cost = <span class="number">-1</span>/m * np.sum( np.multiply(np.log(A), Y) + np.multiply(np.log(<span class="number">1</span>-A), (<span class="number">1</span>-Y)))</span><br></pre></td></tr></table></figure></p>
+<p>下面来一步步解释一下为什么是后面这两种写法。</p>
+<h5 id="np-dot"><a href="#np-dot" class="headerlink" title="np.dot"></a>np.dot</h5><p>A shape:(1, number of examples)<br>Y shape:(1, number of examples)<br>y(i)*log(a(i)) 其实是 element-wise 操作，如果用 np.dot 来进行 element-wise 操作，那么在这种情况下就要把其中一个矩阵进行转置。来一个直观的例子来感受一下：<br><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>A = np.random.randn(<span class="number">1</span>,<span class="number">3</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>Y = np.random.randn(<span class="number">1</span>,<span class="number">3</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>np.dot(A,Y.T).shape</span><br><span class="line">(<span class="number">1</span>, <span class="number">1</span>)</span><br></pre></td></tr></table></figure></p>
+<p>那么现在就很好理解了，y(i)*log(a(i)) 代码就是：np.dot(np.log(A), Y.T),后面那块同理。<br>这是解法1。</p>
+<h5 id="np-multiply"><a href="#np-multiply" class="headerlink" title="np.multiply"></a>np.multiply</h5><p>如果用 multiply 来解的话，就是直接进行 element-wise 计算：<br><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>a.shape</span><br><span class="line">(<span class="number">1</span>, <span class="number">3</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>b.shape</span><br><span class="line">(<span class="number">2</span>, <span class="number">1</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>np.multiply(a,b).shape</span><br><span class="line">(<span class="number">2</span>, <span class="number">3</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>a</span><br><span class="line">array([[<span class="number">-0.56936605</span>, <span class="number">-0.88322008</span>,  <span class="number">0.30289411</span>]])</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>b</span><br><span class="line">array([[<span class="number">-1.23588641</span>],</span><br><span class="line">       [ <span class="number">0.79599502</span>]])</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>np.multiply(a,b)</span><br><span class="line">array([[ <span class="number">0.70367177</span>,  <span class="number">1.09155969</span>, <span class="number">-0.37434271</span>],</span><br><span class="line">       [<span class="number">-0.45321254</span>, <span class="number">-0.70303878</span>,  <span class="number">0.2411022</span> ]])</span><br><span class="line"><span class="comment"># 但是如果 b 的维度跟 a 搭配不够好，就不能够进行 broadcasting</span></span><br><span class="line"><span class="comment"># 比如下面这个例子，a.shape = (1,3), b.shape = (2,2)</span></span><br><span class="line"><span class="comment"># 这样就会出错</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>b = np.random.randn(<span class="number">2</span>,<span class="number">2</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>np.multiply(a,b).shape</span><br><span class="line">Traceback (most recent call last):</span><br><span class="line">  File <span class="string">"&lt;stdin&gt;"</span>, line <span class="number">1</span>, <span class="keyword">in</span> &lt;module&gt;</span><br><span class="line">ValueError: operands could <span class="keyword">not</span> be</span><br></pre></td></tr></table></figure></p>
+<p>那这样的话，第二种解法为什么是那样的 code 就很明白了。</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>您的打赏将鼓励我创作更加优质的内容！</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechatpay.jpeg" alt="gaby 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/alipay.jpeg" alt="gaby 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/numpy/" rel="tag"># numpy</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/01/15/Neural-Networks-and-Deep-Learning-Week1-2-学习笔记/" rel="next" title="Neural Networks and Deep Learning Week1&2 学习笔记">
+                <i class="fa fa-chevron-left"></i> Neural Networks and Deep Learning Week1&2 学习笔记
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">gaby</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">44</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">11</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">20</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          <div class="links-of-author motion-element">
+            
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/gabywang5" target="_blank" title="GitHub">
+                    
+                      <i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="mailto:seraphwang93@gmail.com" target="_blank" title="E-Mail">
+                    
+                      <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                </span>
+              
+            
+          </div>
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#善用-assertion-语句"><span class="nav-number">1.</span> <span class="nav-text">善用 assertion 语句</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#np-dot-是个磨人的小妖精"><span class="nav-number">2.</span> <span class="nav-text">np.dot 是个磨人的小妖精</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1、a、b-都是一维数组，做内积"><span class="nav-number">2.1.</span> <span class="nav-text">1、a、b 都是一维数组，做内积</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2、都是二维数组，做矩阵相乘，建议用-matmul"><span class="nav-number">2.2.</span> <span class="nav-text">2、都是二维数组，做矩阵相乘，建议用 matmul</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3、其中一个是标量（0维）"><span class="nav-number">2.3.</span> <span class="nav-text">3、其中一个是标量（0维）</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#4、a-是-N-维，b-是一维"><span class="nav-number">2.4.</span> <span class="nav-text">4、a 是 N 维，b 是一维</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#5、a-是-N（N-gt-2）-维-b-是-M（M-gt-2）-维"><span class="nav-number">2.5.</span> <span class="nav-text">5、a 是 N（N>=2） 维, b 是 M（M>=2） 维</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#这个-loss-的代码到底该怎么写"><span class="nav-number">3.</span> <span class="nav-text">这个 loss 的代码到底该怎么写</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#np-dot"><span class="nav-number">3.1.</span> <span class="nav-text">np.dot</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#np-multiply"><span class="nav-number">3.2.</span> <span class="nav-text">np.multiply</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">gaby</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.3</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.3"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  
+
+    
+      <script id="dsq-count-scr" src="https://gaby.disqus.com/count.js" async></script>
+    
+
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'http://yoursite.com/2019/01/16/由一个题目谈到-np-dot-和-np-multiply-具体怎么不同/';
+          this.page.identifier = '2019/01/16/由一个题目谈到-np-dot-和-np-multiply-具体怎么不同/';
+          this.page.title = '由一个题目谈到 np.dot 和 np.multiply 具体怎么不同';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://gaby.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
+    
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("epw4Tdhs0rER3k4f8zu6Oe9d-gzGzoHsz", "KrY4PBCU46xIwgOY4IIbeAXB");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
